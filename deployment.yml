@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argo-dep
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: argo
+  template:
+    metadata:
+      name: argo-pod
+      labels:
+        app: argo
+    spec:
+      containers:
+      - name: argo-con
+        image: 756266714368.dkr.ecr.ap-northeast-2.amazonaws.com/web-argo:1
